@@ -1,3 +1,7 @@
-owner,repo,current_version,latest_version,last_checked
-microsoft,edit,v1.2.1,v1.2.1,1774773371
-openclaw,openclaw,v2026.3.28,v2026.3.28,1774773371
+tag,owner,repo,current_version,latest_version,last_checked
+,microsoft,edit,v1.2.1,v1.2.1,1774953300
+android,gkd-kit,gkd,v1.11.6,v1.11.6,1774953300
+xposed,shatyuka,Zhiliao,v26.02.03,v26.02.03,1774953300
+xposed,Dr-TSNG,ZygiskNext,v1.3.3,v1.3.3,1774953300
+python,astral-sh,uv,,v0.11.2,1774953300
+clash,Clash-Verge-rev,clash-verge-rev,,v2.4.7,1774953300
