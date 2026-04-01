@@ -86,6 +86,10 @@ releases/
       ZygiskNext/
         v1.3.3/
           Zygisk-Next-1.3.3-731-1193e46-release.zip
+    yujincheng08/
+      BiliRoaming/
+        v1.7.0/
+          BiliRoaming_1.7.0.apk
   0python/                      # tag=python
     astral-sh/
       uv/
@@ -138,7 +142,9 @@ tag,owner,repo,current_version,latest_version,last_checked
 android,gkd-kit,gkd,v1.11.6,v1.11.6,1774773371
 xposed,shatyuka,Zhiliao,v26.02.03,v26.02.03,1774773371
 xposed,Dr-TSNG,ZygiskNext,v1.3.3,v1.3.3,1774773371
+xposed,yujincheng08,BiliRoaming,,v1.7.0,1774773371
 python,astral-sh,uv,,v0.11.2,1774773371
+clash,Clash-Verge-rev,clash-verge-rev,,v2.4.7,1774773371
 ```
 
 ### 字段说明
@@ -409,6 +415,14 @@ GET https://ghproxy.net/{original_github_url}
 
 ## 📝 更新日志
 
+### v26.4.1A (2026-04-01)
+
+- ✨ 新增：**xposed 分类**，新增 yujincheng08/BiliRoaming 仓库监控
+- ✨ 新增：**BiliRoaming v1.7.0 下载**，成功下载 BiliRoaming_1.7.0.apk
+- 🔧 改进：**日志初始化重构**，将 logging 配置从 check_releases.py 移至 main.py
+- 🔧 改进：**程序启动输出**，在程序开始时打印 unixtime 时间戳、SCRIPT_DIR、LOG_DIR、LOG_FILE 信息
+- 📦 优化：日志系统统一在主入口初始化，check_releases.py 通过 `logging.getLogger(__name__)` 获取 logger
+
 ### v26.3.31C (2026-03-31)
 
 - ✨ 新增：**clash 分类**，新增 Clash-Verge-rev/clash-verge-rev 仓库监控
@@ -467,5 +481,5 @@ GET https://ghproxy.net/{original_github_url}
 
 ---
 
-*最后更新：2026-03-31*
-*版本：26.3.31C*
+*最后更新：2026-04-01*
+*版本：26.4.1A*

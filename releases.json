@@ -7,7 +7,7 @@
     "current_version": "v1.2.1",
     "has_update": false,
     "html_url": "https://github.com/microsoft/edit/releases/tag/v1.2.1",
-    "last_checked": 1774953300,
+    "last_checked": 1775012724,
     "assets": [
       {
         "filename": "edit-1.2.0-aarch64-linux-gnu.tar.zst",
@@ -48,7 +48,7 @@
     "current_version": "v1.11.6",
     "has_update": false,
     "html_url": "https://github.com/gkd-kit/gkd/releases/tag/v1.11.6",
-    "last_checked": 1774953300,
+    "last_checked": 1775012724,
     "assets": [
       {
         "filename": "gkd-v1.11.6.apk",
@@ -75,7 +75,7 @@
     "current_version": "v26.02.03",
     "has_update": false,
     "html_url": "https://github.com/shatyuka/Zhiliao/releases/tag/v26.02.03",
-    "last_checked": 1774953300,
+    "last_checked": 1775012724,
     "assets": [
       {
         "filename": "Zhiliao_26.02.03.apk",
@@ -95,7 +95,7 @@
     "current_version": "v1.3.3",
     "has_update": false,
     "html_url": "https://github.com/Dr-TSNG/ZygiskNext/releases/tag/v1.3.3",
-    "last_checked": 1774953300,
+    "last_checked": 1775012724,
     "assets": [
       {
         "filename": "Zygisk-Next-1.3.3-731-1193e46-release.zip",
@@ -108,6 +108,33 @@
     "downloaded_assets": null
   },
   {
+    "tag": "xposed",
+    "owner": "yujincheng08",
+    "repo": "BiliRoaming",
+    "latest_version": "v1.7.0",
+    "current_version": "",
+    "has_update": true,
+    "html_url": "https://github.com/yujincheng08/BiliRoaming/releases/tag/v1.7.0",
+    "last_checked": 1775012724,
+    "assets": [
+      {
+        "filename": "BiliRoaming_1.7.0.apk",
+        "download_url": "https://github.com/yujincheng08/BiliRoaming/releases/download/v1.7.0/BiliRoaming_1.7.0.apk",
+        "size": "671 KB",
+        "published_at": "2023-10-12T09:50:30Z"
+      }
+    ],
+    "downloaded_assets": [
+      {
+        "filename": "BiliRoaming_1.7.0.apk",
+        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0xposed\\yujincheng08\\BiliRoaming\\v1.7.0\\BiliRoaming_1.7.0.apk",
+        "sha256": "e0350e7821af3e3e7b45c8669b4c7cf50f2f19a9f3f933ae2a0c5a85bfee74ea",
+        "file_size": 687282,
+        "status": "downloaded"
+      }
+    ]
+  },
+  {
     "tag": "python",
     "owner": "astral-sh",
     "repo": "uv",
@@ -115,7 +142,7 @@
     "current_version": "",
     "has_update": true,
     "html_url": "https://github.com/astral-sh/uv/releases/tag/v0.11.2",
-    "last_checked": 1774953300,
+    "last_checked": 1775012724,
     "assets": [
       {
         "filename": "dist-manifest.json",
@@ -666,7 +693,7 @@
     "current_version": "",
     "has_update": true,
     "html_url": "https://github.com/Clash-Verge-rev/clash-verge-rev/releases/tag/v2.4.7",
-    "last_checked": 1774953300,
+    "last_checked": 1775012724,
     "assets": [
       {
         "filename": "Clash Verge-2.4.7-1.aarch64.rpm",
@@ -827,162 +854,139 @@
         "filename": "Clash Verge-2.4.7-1.aarch64.rpm",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge-2.4.7-1.aarch64.rpm",
         "sha256": "9acb2951dd6516b0e91818b396c52f79d1f5f7dc6cd0fe535b2a63b1cf2e7e68",
-        "file_size": 53371057,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash Verge-2.4.7-1.armhfp.rpm",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge-2.4.7-1.armhfp.rpm",
         "sha256": "0b1bee06646d1cd2ed7cdf601c04e253200895454edb656a9f60b463a37be1a9",
-        "file_size": 54075784,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge-2.4.7-1.x86_64.rpm",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge-2.4.7-1.x86_64.rpm",
         "sha256": "c5dfd275125056f59d9977b0a424d38c366569f724cb5398cd3cade00d8046cf",
-        "file_size": 56854073,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge-2.4.7-1.x86_64.rpm.sig",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge-2.4.7-1.x86_64.rpm.sig",
         "sha256": "48b498a79a731c00546748e4b0df32c1bcd6a167ebf060834a1668d0158f8672",
-        "file_size": 420,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_2.4.7_aarch64.dmg",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_aarch64.dmg",
         "sha256": "b4967eeefccc9688c100810fdfefa99147030c23949d1f278d5a5536aa86abf3",
-        "file_size": 50208570,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_2.4.7_amd64.deb",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_amd64.deb",
         "sha256": "c1fcbaa79e454416e3dff644f83ea30c9437cd9cd7e4d199ac7add651882c65d",
-        "file_size": 56855980,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_2.4.7_amd64.deb.sig",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_amd64.deb.sig",
         "sha256": "cd26312e8c20b2df2e5778bafd1f205f5513abac51fcf2a73a54e6dc881d241b",
-        "file_size": 416,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_2.4.7_arm64-setup.exe",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_arm64-setup.exe",
         "sha256": "7f522be46e6abae89a4905ba4914ad7a9d08a8b07c7c97ee45c6607f0abd02e5",
-        "file_size": 34540310,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_2.4.7_arm64-setup.exe.sig",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_arm64-setup.exe.sig",
         "sha256": "e56cf631df983b9bd7cb74c7edfc35fbc07d77ab1e264e79321d335e475d3241",
-        "file_size": 424,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash Verge_2.4.7_arm64.deb",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_arm64.deb",
         "sha256": "35f321a498f762175316b231d2fad3a90678016ad19157779758b5420d743a8f",
-        "file_size": 53370802,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash Verge_2.4.7_arm64_fixed_webview2-setup.exe",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_arm64_fixed_webview2-setup.exe",
         "sha256": "cabf20da51e4a8d45153f978941add6c120fbe791827d1626f7e56f16f3ceff1",
-        "file_size": 213346373,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash Verge_2.4.7_arm64_fixed_webview2-setup.exe.sig",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_arm64_fixed_webview2-setup.exe.sig",
         "sha256": "a11fe49ff29e012a90b2f837492ce70e6d445ab8867c578f58c1e021f0f7ed5b",
-        "file_size": 424,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash Verge_2.4.7_armhf.deb",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_armhf.deb",
         "sha256": "741b92d107466582f1955cc547b54405437bc4ef374ab28632816cabd0fe6739",
-        "file_size": 54074044,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_2.4.7_x64-setup.exe",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_x64-setup.exe",
         "sha256": "6642881b212bcd4766e81d56aec7497063ba5198c287f7d00a2ecf13b6f8b61a",
-        "file_size": 38672014,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_2.4.7_x64-setup.exe.sig",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_x64-setup.exe.sig",
         "sha256": "1a3b6a963badf8612c208852ed723a81f0037074393c271fbe6cecc727be9ea8",
-        "file_size": 424,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_2.4.7_x64.dmg",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_x64.dmg",
         "sha256": "89b32dd2aec2bccad52507ccc994cbdf67335a29de6ff794ebe844eb7c387792",
-        "file_size": 53795360,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash Verge_2.4.7_x64_fixed_webview2-setup.exe",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_x64_fixed_webview2-setup.exe",
         "sha256": "db9f052526a2cf1a8db8ddc739cc0b969f1edddf3d4f068cd8211cbac9ddf151",
-        "file_size": 228973802,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash Verge_2.4.7_x64_fixed_webview2-setup.exe.sig",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_x64_fixed_webview2-setup.exe.sig",
         "sha256": "a91495247f24e691f11f570d83daf20073fda32f29848e6d91bf73f9e65d82fd",
-        "file_size": 424,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_aarch64.app.tar.gz",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_aarch64.app.tar.gz",
         "sha256": "00dd16332ad582657f810fe300a45f84067aeb79b2d0cc68fedf87ebf160d457",
-        "file_size": 51301707,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_aarch64.app.tar.gz.sig",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_aarch64.app.tar.gz.sig",
         "sha256": "bb0e0163825217213365698a354d4c0d24f945c0808ef61c40ffbfe7f7cb6df3",
-        "file_size": 412,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_x64.app.tar.gz",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_x64.app.tar.gz",
         "sha256": "75a5e33b9e4f0f7b744e5ef56b62f09843db70c90b2a6ba8478f8ecfce032a87",
-        "file_size": 54704368,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "Clash.Verge_x64.app.tar.gz.sig",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_x64.app.tar.gz.sig",
         "sha256": "7390c563cc9db126b09444d056814f4abf370adf4967b13db3d3d296215c7156",
-        "file_size": 412,
-        "status": "downloaded"
+        "status": "exists"
       },
       {
         "filename": "latest.json",
         "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\latest.json",
         "sha256": "5939c737f95f7aba64b8947e2475703fbd75b0780936fdf1b15fa3f747e4c1c7",
-        "file_size": 6685,
-        "status": "downloaded"
+        "status": "exists"
       }
     ]
   }

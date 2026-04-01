@@ -36,19 +36,7 @@ TMP_DIR = SCRIPT_DIR / "tmp"
 LOG_DIR = SCRIPT_DIR / "log"
 DB_DIR = SCRIPT_DIR / "db"
 
-# 日志配置
-LOG_DIR.mkdir(parents=True, exist_ok=True)
-LOG_FILE = LOG_DIR / datetime.now().strftime("%Y%m%d.log")
-
-# 配置日志系统
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(LOG_FILE, encoding='utf-8'),
-        logging.StreamHandler()
-    ]
-)
+# 获取 logger（由 main.py 初始化）
 logger = logging.getLogger(__name__)
 
 
