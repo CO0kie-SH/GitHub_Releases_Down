@@ -93,7 +93,7 @@ releases/
   0python/                      # tag=python
     astral-sh/
       uv/
-        v0.11.2/
+        v0.11.3/
           uv-x86_64-pc-windows-msvc.zip
           uv-x86_64-apple-darwin.tar.gz
           uv-x86_64-unknown-linux-gnu.tar.gz
@@ -101,6 +101,16 @@ releases/
           dist-manifest.json
           sha256.sum
           ... (更多平台支持)
+  0network/                     # tag=network
+    zhongyang219/
+      TrafficMonitor/
+        V1.86/
+          TrafficMonitor_V1.86_x64.zip
+          TrafficMonitor_V1.86_x64_Lite.zip
+          TrafficMonitor_V1.86_x86.zip
+          TrafficMonitor_V1.86_x86_Lite.zip
+          TrafficMonitor_V1.86_arm64ec.zip
+          TrafficMonitor_V1.86_arm64ec_Lite.zip
 ```
 
 ---
@@ -138,13 +148,14 @@ python main.py
 
 ```csv
 tag,owner,repo,current_version,latest_version,last_checked
-,microsoft,edit,v1.2.1,v1.2.1,1774773371
-android,gkd-kit,gkd,v1.11.6,v1.11.6,1774773371
-xposed,shatyuka,Zhiliao,v26.02.03,v26.02.03,1774773371
-xposed,Dr-TSNG,ZygiskNext,v1.3.3,v1.3.3,1774773371
-xposed,yujincheng08,BiliRoaming,,v1.7.0,1774773371
-python,astral-sh,uv,,v0.11.2,1774773371
-clash,Clash-Verge-rev,clash-verge-rev,,v2.4.7,1774773371
+,microsoft,edit,v1.2.1,v1.2.1,1775188923
+android,gkd-kit,gkd,v1.11.6,v1.11.6,1775188923
+xposed,shatyuka,Zhiliao,v26.02.03,v26.02.03,1775188923
+xposed,Dr-TSNG,ZygiskNext,v1.3.3,v1.3.3,1775188923
+xposed,yujincheng08,BiliRoaming,,v1.7.0,1775188923
+python,astral-sh,uv,,v0.11.3,1775188923
+clash,Clash-Verge-rev,clash-verge-rev,,v2.4.7,1775188923
+network,zhongyang219,TrafficMonitor,,V1.86,1775188923
 ```
 
 ### 字段说明
@@ -415,6 +426,13 @@ GET https://ghproxy.net/{original_github_url}
 
 ## 📝 更新日志
 
+### v26.4.3A (2026-04-03)
+
+- ✨ 新增：**network 分类**，新增 zhongyang219/TrafficMonitor 仓库监控
+- ✨ 新增：**TrafficMonitor V1.86 下载**，成功下载所有平台安装包
+- 📦 下载资产：包含 x64/x86/arm64ec 及 Lite 版本共 6 个文件
+- 🔄 更新：uv 版本从 v0.11.2 更新到 v0.11.3
+
 ### v26.4.1A (2026-04-01)
 
 - ✨ 新增：**xposed 分类**，新增 yujincheng08/BiliRoaming 仓库监控
@@ -481,5 +499,5 @@ GET https://ghproxy.net/{original_github_url}
 
 ---
 
-*最后更新：2026-04-01*
-*版本：26.4.1A*
+*最后更新：2026-04-03*
+*版本：26.4.3A*

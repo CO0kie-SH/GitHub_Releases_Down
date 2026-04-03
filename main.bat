@@ -1,4 +1,4 @@
-@chcp 65001
+@chcp 65001>nul
 @title GitHub Releases 监控系统
 @cd /d %~dp0
 @set PYTHONIOENCODING=utf-8
