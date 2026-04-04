@@ -25,7 +25,7 @@
 - ✅ **429 速率限制处理**：自动重试 + 指数退避
 - ✅ 输出结构化 JSON 数据
 - ✅ 使用 Unix 时间戳记录检查时间
-- 🔄 发现新版本时发送通知（待实现）
+- ✅ **飞书通知功能**：发现新版本时自动发送飞书消息，标题为"GITHUB订阅更新"
 
 ---
 
@@ -36,19 +36,23 @@ github/                         # 脚本所在目录（相对路径）
 ├── github.csv                  # 监控仓库配置
 ├── check_releases.py           # 主检查脚本（异步版本）
 ├── main.py                     # 入口脚本（PyCharm）
+├── feishu_notifier.py          # 飞书通知模块
 ├── releases.json               # 最新版本数据输出
 ├── README.md                   # 本说明文件
-└── releases/                   # 下载文件存储目录
-    ├── tmp/                    # 临时下载目录（sha256 作为文件名）
-    ├── {owner}/                # 无 tag 的仓库
-    │   └── {repo}/
-    │       └── {version}/
-    │           └── {files}
-    └── 0{tag}/                 # 有 tag 的仓库
-        └── {owner}/
-            └── {repo}/
-                └── {version}/
-                    └── {files}
+├── config/                     # 配置文件目录
+│   └── FeiShu.csv             # 飞书通知配置
+├── releases/                   # 下载文件存储目录
+├── tmp/                        # 临时下载目录（sha256 作为文件名）
+├── log/                        # 日志文件目录
+└── {owner}/                    # 无 tag 的仓库
+    └── {repo}/
+        └── {version}/
+            └── {files}
+└── 0{tag}/                     # 有 tag 的仓库
+    └── {owner}/
+        └── {repo}/
+            └── {version}/
+                └── {files}
 ```
 
 ### 下载目录示例
@@ -180,6 +184,50 @@ has_update = (latest_version != current_version) && (latest_version != "")
 
 ---
 
+### 飞书通知配置：`config/FeiShu.csv`
+
+```csv
+tag,url,mode
+github,https://open.feishu.cn/open-apis/bot/v2/hook/YOUR_WEBHOOK_URL_HERE,title
+```
+
+### 字段说明
+
+| 字段 | 说明 | 示例值 |
+|------|------|--------|
+| `tag` | 飞书机器人标签，用于区分多个机器人 | `github` |
+| `url` | 飞书机器人 Webhook URL | `https://open.feishu.cn/open-apis/bot/v2/hook/xxx` |
+| `mode` | 发送模式：`text`(纯文本), `post`(富文本), `title`(标题), `none`(禁用) | `title` |
+
+### 模式说明
+
+| 模式 | 效果 |
+|------|------|
+| `none` | 不发送消息（用于临时禁用） |
+| `text` | 发送纯文本消息 |
+| `post` | 发送富文本消息（支持标题和内容） |
+| `title` | 发送带标题的富文本消息（推荐） |
+
+### 飞书消息格式
+
+当检测到新版本时，会自动发送飞书消息：
+
+**标题**: `GITHUB订阅更新`
+
+**内容示例**:
+```
+发现 2 个更新:
+android/gkd-kit/gkd: v1.10.0 → v1.11.6
+  下载文件:
+    - gkd-v1.11.6.apk (3.87 MB)
+python/astral-sh/uv: v0.11.2 → v0.11.3
+  下载文件:
+    - uv-x86_64-pc-windows-msvc.zip (5.23 MB)
+    - uv-x86_64-apple-darwin.tar.gz (4.18 MB)
+```
+
+---
+
 ## 📊 数据格式
 
 ### 输出文件：`releases.json`
@@ -268,11 +316,18 @@ has_update = (latest_version != current_version) && (latest_version != "")
 │     ├─ releases.json: 完整检查结果 + 资产信息 + 下载状态       │
 │     └─ github.csv: 更新 latest_version, last_checked         │
 └─────────────────────────────────────────────────────────────┘
-                          ↓
+                           ↓
 ┌─────────────────────────────────────────────────────────────┐
 │  8. 输出摘要                                                 │
 │     ├─ 检查仓库数量                                          │
 │     └─ 有更新的仓库列表 [tag] owner/repo: old → new          │
+└─────────────────────────────────────────────────────────────┘
+                           ↓
+┌─────────────────────────────────────────────────────────────┐
+│  9. 发送飞书通知（仅在有更新时）                               │
+│     ├─ 标题: GITHUB订阅更新                                   │
+│     ├─ 内容: 更新列表 + 下载文件信息                          │
+│     └─ 自动根据配置发送到所有启用的飞书机器人                   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -316,6 +371,31 @@ android,gkd-kit,gkd,v1.11.7,v1.11.7,1774773371
 ```bash
 # 每 6 小时检查一次（推荐）
 0 */6 * * * cd /path/to/github && python check_releases.py >> cron.log 2>&1
+```
+
+### 6. 配置飞书通知
+
+编辑 `config/FeiShu.csv`，添加飞书机器人 Webhook URL：
+
+```csv
+tag,url,mode
+github,https://open.feishu.cn/open-apis/bot/v2/hook/YOUR_WEBHOOK_URL,title
+```
+
+**获取飞书 Webhook URL 的步骤：**
+
+1. 在飞书中创建一个自定义机器人
+2. 获取机器人的 Webhook URL
+3. 将 URL 填入 `config/FeiShu.csv` 文件
+4. 将 `mode` 设置为 `title`（推荐）
+
+**临时禁用通知：**
+
+将 `mode` 设置为 `none`，无需删除配置：
+
+```csv
+tag,url,mode
+github,https://open.feishu.cn/open-apis/bot/v2/hook/YOUR_WEBHOOK_URL,none
 ```
 
 ---
@@ -426,6 +506,14 @@ GET https://ghproxy.net/{original_github_url}
 
 ## 📝 更新日志
 
+### v26.4.4A (2026-04-04)
+
+- ✨ 新增：**飞书通知功能**，发现新版本时自动发送飞书消息
+- ✨ 新增：**飞书通知模块** `feishu_notifier.py`，支持多机器人配置
+- ✨ 新增：**飞书配置文件** `config/FeiShu.csv`，支持多种发送模式
+- 🔧 改进：**通知消息格式优化**，包含更新列表和下载文件详细信息
+- 📦 依赖：无新增（复用 aiohttp）
+
 ### v26.4.3A (2026-04-03)
 
 - ✨ 新增：**network 分类**，新增 zhongyang219/TrafficMonitor 仓库监控
@@ -499,5 +587,5 @@ GET https://ghproxy.net/{original_github_url}
 
 ---
 
-*最后更新：2026-04-03*
-*版本：26.4.3A*
+*最后更新：2026-04-04*
+*版本：26.4.4A*

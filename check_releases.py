@@ -17,6 +17,7 @@ import aiohttp
 import logging
 from pathlib import Path
 from datetime import datetime, timedelta
+from feishu_notifier import send_feishu_message
 
 # 获取脚本所在目录（支持软链接）
 SCRIPT_DIR = Path(__file__).parent.resolve()
@@ -581,6 +582,30 @@ async def main():
         for u in updates_found:
             tag_str = f"[{u['tag']}] " if u['tag'] else ""
             print(f"  - {tag_str}{u['owner']}/{u['repo']}: {u['old_version']} → {u['new_version']}")
+        
+        # 发送飞书通知
+        try:
+            message_lines = [f"发现 {len(updates_found)} 个更新:"]
+            for u in updates_found:
+                tag_str = f"[{u['tag']}] " if u['tag'] else ""
+                message_lines.append(f"{tag_str}{u['owner']}/{u['repo']}: {u['old_version']} → {u['new_version']}")
+                
+                # 添加下载的资产信息
+                downloaded_assets = u.get('downloaded_assets', [])
+                if downloaded_assets:
+                    message_lines.append(f"  下载文件:")
+                    for asset in downloaded_assets:
+                        if asset.get('status') == 'downloaded':
+                            filename = asset.get('filename', '')
+                            size = asset.get('file_size', 0)
+                            size_mb = size / (1024 * 1024) if size else 0
+                            message_lines.append(f"    - {filename} ({size_mb:.2f} MB)")
+            
+            message_body = "\n".join(message_lines)
+            print(f"[INFO] Sending Feishu notification...")
+            await send_feishu_message(logger, message_body, v_title="GITHUB订阅更新")
+        except Exception as e:
+            logger.error(f"发送飞书通知失败: {e}")
     else:
         print("[UPDATES] No new versions found")
 
