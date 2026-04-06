@@ -26,6 +26,7 @@
 - ✅ 输出结构化 JSON 数据
 - ✅ 使用 Unix 时间戳记录检查时间
 - ✅ **飞书通知功能**：发现新版本时自动发送飞书消息，标题为"GITHUB订阅更新"
+- ✅ **类化架构**：入口、检查器、下载工作流均采用类实现，便于维护和扩展
 
 ---
 
@@ -34,8 +35,10 @@
 ```
 github/                         # 脚本所在目录（相对路径）
 ├── github.csv                  # 监控仓库配置
-├── check_releases.py           # 主检查脚本（异步版本）
-├── main.py                     # 入口脚本（PyCharm）
+├── check_releases.py           # 主检查脚本（异步版本，类实现）
+├── download_workflow.py        # 下载与持久化工作流（类实现）
+├── version.py                  # 项目版本号
+├── main.py                     # 入口脚本（类实现）
 ├── feishu_notifier.py          # 飞书通知模块
 ├── releases.json               # 最新版本数据输出
 ├── README.md                   # 本说明文件
@@ -506,6 +509,14 @@ GET https://ghproxy.net/{original_github_url}
 
 ## 📝 更新日志
 
+### v26.4.6A (2026-04-06)
+
+- 🔧 重构：核心流程改为类实现，新增 `ReleaseMonitorApp`、`GitHubReleaseChecker`、`DownloadWorkflow`
+- 🔧 重构：下载流程、持久化与通知流程统一收敛到工作流类，职责边界更清晰
+- 🔧 优化：细节日志改为 `logger` 输出，仅保留流程切换 `print`
+- ✨ 新增：下载元信息日志（下载 URL、目标 SHA、目标路径、已存在文件 SHA）
+- ✨ 新增：`version.py` 统一维护版本号，主入口启动信息输出版本
+
 ### v26.4.4A (2026-04-04)
 
 - ✨ 新增：**飞书通知功能**，发现新版本时自动发送飞书消息
@@ -587,5 +598,5 @@ GET https://ghproxy.net/{original_github_url}
 
 ---
 
-*最后更新：2026-04-04*
-*版本：26.4.4A*
+*最后更新：2026-04-06*
+*版本：26.4.6A*

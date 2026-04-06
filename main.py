@@ -1,55 +1,60 @@
 #!/usr/bin/env python3
 """
-GitHub Releases 监控系统 - 主入口文件
+GitHub Releases monitor - program entry.
 """
 
+from __future__ import annotations
+
 import asyncio
+import logging
 import sys
 import time
-import logging
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
-# 添加脚本所在目录到 Python 路径
-SCRIPT_DIR = Path(__file__).parent.resolve()
-sys.path.insert(0, str(SCRIPT_DIR))
+from version import __version__
 
-# 日志目录配置
-LOG_DIR = SCRIPT_DIR / "log"
-LOG_DIR.mkdir(parents=True, exist_ok=True)
-LOG_FILE = LOG_DIR / datetime.now().strftime("%Y%m%d.log")
+class ReleaseMonitorApp:
+    def __init__(self) -> None:
+        self.script_dir = Path(__file__).parent.resolve()
+        sys.path.insert(0, str(self.script_dir))
 
-# 配置日志系统
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(LOG_FILE, encoding='utf-8'),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
+        self.log_dir = self.script_dir / "log"
+        self.log_dir.mkdir(parents=True, exist_ok=True)
+        self.log_file = self.log_dir / datetime.now().strftime("%Y%m%d.log")
+        self.logger = self._configure_logging()
 
-from check_releases import clean_old_logs
+    def _configure_logging(self):
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+            handlers=[logging.FileHandler(self.log_file, encoding="utf-8"), logging.StreamHandler()],
+        )
+        return logging.getLogger(__name__)
 
+    async def run(self) -> None:
+        from check_releases import GitHubReleaseChecker
 
-async def main():
-    """主入口函数"""
-    # 清理旧日志文件（保留30天）
-    clean_old_logs(SCRIPT_DIR / "log", days=30)
-    
-    # 导入并执行主检查函数
-    from check_releases import main as check_releases_main
-    await check_releases_main()
+        checker = GitHubReleaseChecker(script_dir=self.script_dir)
+        checker.clean_old_logs(self.log_dir, days=30)
+        await checker.run()
 
 
-if __name__ == '__main__':
-    print(f"[{int(time.time())}] 程序开始执行, SCRIPT_DIR={SCRIPT_DIR}, LOG_DIR={LOG_DIR}, LOG_FILE={LOG_FILE}")
+def main() -> None:
+    app = ReleaseMonitorApp()
+    print(
+        f"[{int(time.time())}] Program started v{__version__} "
+        f"SCRIPT_DIR={app.script_dir}, LOG_DIR={app.log_dir}, LOG_FILE={app.log_file}"
+    )
     try:
-        asyncio.run(main())
+        asyncio.run(app.run())
     except KeyboardInterrupt:
-        logger.info("程序被用户中断")
+        app.logger.info("Program interrupted by user")
         sys.exit(0)
     except Exception as e:
-        logger.error(f"程序执行出错: {e}", exc_info=True)
+        app.logger.error(f"Program execution failed: {e}", exc_info=True)
         sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
