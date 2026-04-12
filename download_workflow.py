@@ -9,7 +9,9 @@ Step 9-11: persist results, print summary, send Feishu notifications.
 from __future__ import annotations
 
 import json
+import os
 import shutil
+import time
 from pathlib import Path
 from typing import Any, Callable
 
@@ -23,6 +25,24 @@ class DownloadWorkflow:
 
     def __init__(self, logger=None):
         self.logger = logger
+
+    def _safe_unlink(self, path: Path) -> None:
+        """Best-effort delete for tmp files; never raise to caller."""
+        if not path.exists():
+            return
+        last_error = None
+        for retry in range(12):
+            try:
+                path.unlink()
+                return
+            except PermissionError as e:
+                last_error = e
+                time.sleep(1.0)
+            except Exception as e:
+                last_error = e
+                break
+        if self.logger and last_error is not None:
+            self.logger.warning(f"Failed to delete tmp file: {path} - {last_error}")
 
     async def download_assets(
         self,
@@ -78,36 +98,48 @@ class DownloadWorkflow:
             else:
                 print(meta_msg)
 
-            if final_path.exists():
-                if expected_sha256:
-                    actual_sha256 = calculate_sha256_func(str(final_path))
-                    if actual_sha256 == expected_sha256:
-                        downloaded.append(
-                            {
-                                "filename": filename,
-                                "file_path": str(final_path),
-                                "sha256": actual_sha256,
-                                "status": "exists",
-                            }
-                        )
-                        if self.logger:
-                            self.logger.info(f"File already exists and verified: {filename}")
-                        continue
-                else:
+            # Skip download entirely when sha256 is missing.
+            if not expected_sha256:
+                if final_path.exists():
                     if self.logger:
-                        self.logger.info(f"File already exists (no sha256 provided): {filename}")
+                        self.logger.info(f"File already exists but sha256 is missing, skip download: {filename}")
                     downloaded.append(
                         {
                             "filename": filename,
                             "file_path": str(final_path),
-                            "sha256": None,
+                            "sha256": existing_sha256,
+                            "status": "exists_no_sha",
+                        }
+                    )
+                else:
+                    if self.logger:
+                        self.logger.warning(f"Skip download due to missing sha256: {filename}")
+                    downloaded.append(
+                        {
+                            "filename": filename,
+                            "status": "skipped_no_sha",
+                            "error": "Missing sha256",
+                        }
+                    )
+                continue
+
+            if final_path.exists():
+                actual_sha256 = existing_sha256 or calculate_sha256_func(str(final_path))
+                if actual_sha256 == expected_sha256:
+                    downloaded.append(
+                        {
+                            "filename": filename,
+                            "file_path": str(final_path),
+                            "sha256": actual_sha256,
                             "status": "exists",
                         }
                     )
+                    if self.logger:
+                        self.logger.info(f"File already exists and verified: {filename}")
                     continue
 
             proxy_url = f"{ghproxy_url}/{download_url}"
-            tmp_path = tmp_dir / (expected_sha256 if expected_sha256 else f"{filename}.tmp")
+            tmp_path = tmp_dir / expected_sha256
 
             if self.logger:
                 self.logger.info(f"Downloading {filename} via ghproxy...")
@@ -115,21 +147,56 @@ class DownloadWorkflow:
             result = await download_file_func(session, proxy_url, str(tmp_path), expected_sha256)
 
             if result.get("success"):
-                shutil.move(str(tmp_path), str(final_path))
-                downloaded.append(
-                    {
-                        "filename": filename,
-                        "file_path": str(final_path),
-                        "sha256": result.get("sha256"),
-                        "file_size": result.get("file_size"),
-                        "status": "downloaded",
-                    }
-                )
-                if self.logger:
-                    self.logger.info(f"Downloaded and verified: {filename}")
+                move_ok = False
+                move_error = None
+                for retry in range(20):
+                    try:
+                        # Prefer atomic replace on same filesystem; works for overwrite case too.
+                        os.replace(str(tmp_path), str(final_path))
+                        move_ok = True
+                        break
+                    except PermissionError as e:
+                        move_error = e
+                        # File can be briefly locked by antivirus/indexer on Windows.
+                        if retry < 19:
+                            time.sleep(1.0)
+                    except Exception as e:
+                        move_error = e
+                        break
+
+                if not move_ok and tmp_path.exists():
+                    try:
+                        shutil.copy2(str(tmp_path), str(final_path))
+                        tmp_path.unlink()
+                        move_ok = True
+                    except Exception as e:
+                        move_error = e
+
+                if move_ok:
+                    downloaded.append(
+                        {
+                            "filename": filename,
+                            "file_path": str(final_path),
+                            "sha256": result.get("sha256"),
+                            "file_size": result.get("file_size"),
+                            "status": "downloaded",
+                        }
+                    )
+                    if self.logger:
+                        self.logger.info(f"Downloaded and verified: {filename}")
+                else:
+                    self._safe_unlink(tmp_path)
+                    downloaded.append(
+                        {
+                            "filename": filename,
+                            "status": "failed",
+                            "error": f"Move failed: {move_error}",
+                        }
+                    )
+                    if self.logger:
+                        self.logger.error(f"Failed to move downloaded file: {filename} - {move_error}")
             else:
-                if tmp_path.exists():
-                    tmp_path.unlink()
+                self._safe_unlink(tmp_path)
                 downloaded.append(
                     {
                         "filename": filename,

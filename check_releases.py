@@ -8,6 +8,7 @@ from __future__ import annotations
 import asyncio
 import csv
 import hashlib
+import html
 import logging
 import os
 import re
@@ -55,13 +56,13 @@ class GitHubReleaseChecker:
     XGET_API = "https://xget.xi-xu.me/gh"
     GHPROXY_URL = "https://ghproxy.net"
 
-    def __init__(self, script_dir: Path | None = None, request_delay: float = 3.0):
+    def __init__(self, script_dir: Path | None = None, request_delay: float = 3.0, logger=None):
         self.script_dir = script_dir or Path(__file__).parent.resolve()
         if Path(__file__).is_symlink():
             self.script_dir = Path(__file__).resolve().parent
 
         self.paths = CheckerPaths(self.script_dir)
-        self.logger = logging.getLogger(__name__)
+        self.logger = logger or logging.getLogger(__name__)
         self.request_delay = request_delay
         self.github_token = os.environ.get("GITHUB_TOKEN")
         self.workflow = DownloadWorkflow(logger=self.logger)
@@ -85,6 +86,7 @@ class GitHubReleaseChecker:
         owner: str,
         repo: str,
         version: str,
+        fill_missing_sha: bool = True,
         max_retries: int = 3,
         retry_delay: float = 5.0,
     ) -> list[dict] | None:
@@ -150,6 +152,29 @@ class GitHubReleaseChecker:
                                 assets.append(asset)
 
                         if assets:
+                            missing_sha_assets = [a for a in assets if not a.get("sha256")]
+                            if fill_missing_sha and missing_sha_assets:
+                                sha_map = await self.get_release_checksums_via_xget_tag(
+                                    session=session,
+                                    owner=owner,
+                                    repo=repo,
+                                    version=version,
+                                    max_retries=max_retries,
+                                    retry_delay=retry_delay,
+                                )
+                                if sha_map:
+                                    filled = 0
+                                    for asset in missing_sha_assets:
+                                        filename = asset.get("filename", "")
+                                        sha256 = sha_map.get(filename)
+                                        if sha256:
+                                            asset["sha256"] = sha256
+                                            filled += 1
+                                    if filled > 0:
+                                        self.logger.info(
+                                            f"{owner}/{repo}/{version}: Filled sha256 for {filled} asset(s) "
+                                            f"via xget tag page"
+                                        )
                             return assets
                         break
 
@@ -171,6 +196,98 @@ class GitHubReleaseChecker:
 
         self.logger.warning(f"{owner}/{repo}/{version}: No assets found (xget)")
         return None
+
+    @staticmethod
+    def _extract_sha256_map_from_tag_page(html_text: str) -> dict[str, str]:
+        """Extract checksum mapping from xget release tag page text."""
+        text = re.sub(r"(?i)<br\s*/?>", "\n", html_text)
+        text = re.sub(r"<[^>]+>", " ", text)
+        text = html.unescape(text)
+
+        sha_map: dict[str, str] = {}
+        # Match blocks like:
+        # filename.ext
+        # md5: ...
+        # sha256: <64 hex>
+        pattern = re.compile(
+            r"([A-Za-z0-9._+\-]+\.[A-Za-z0-9][A-Za-z0-9.\-+]*)"
+            r"(?:\s+md5:\s*[a-f0-9]{32})?"
+            r"\s+sha256:\s*([a-f0-9]{64})",
+            re.IGNORECASE,
+        )
+        for match in pattern.finditer(text):
+            filename = match.group(1).strip()
+            sha256 = match.group(2).lower().strip()
+            if filename and sha256:
+                sha_map[filename] = sha256
+        return sha_map
+
+    async def get_release_checksums_via_xget_tag(
+        self,
+        session: aiohttp.ClientSession,
+        owner: str,
+        repo: str,
+        version: str,
+        max_retries: int = 3,
+        retry_delay: float = 5.0,
+    ) -> dict[str, str]:
+        versions_to_try = [version, version.lstrip("v")]
+        if versions_to_try[0] == versions_to_try[1]:
+            versions_to_try = [version]
+
+        for xget_version in versions_to_try:
+            url = f"{self.XGET_API}/{owner}/{repo}/releases/tag/{xget_version}"
+            for attempt in range(max_retries):
+                try:
+                    async with session.get(url, timeout=aiohttp.ClientTimeout(total=30)) as response:
+                        if response.status == 429:
+                            retry_after = response.headers.get("Retry-After")
+                            wait_time = float(retry_after) if retry_after else retry_delay * (2 ** attempt)
+                            self.logger.warning(
+                                f"{owner}/{repo}/{xget_version} tag page: HTTP 429, waiting {wait_time}s "
+                                f"(attempt {attempt + 1}/{max_retries})"
+                            )
+                            if attempt < max_retries - 1:
+                                await asyncio.sleep(wait_time)
+                                continue
+                            break
+
+                        if response.status == 404:
+                            break
+
+                        if response.status != 200:
+                            self.logger.warning(
+                                f"{owner}/{repo}/{xget_version} tag page: HTTP {response.status}"
+                            )
+                            break
+
+                        data = await response.text()
+                        sha_map = self._extract_sha256_map_from_tag_page(data)
+                        if sha_map:
+                            return sha_map
+                        break
+                except asyncio.TimeoutError:
+                    self.logger.warning(
+                        f"{owner}/{repo}/{xget_version} tag page: Timeout "
+                        f"(attempt {attempt + 1}/{max_retries})"
+                    )
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(retry_delay)
+                        continue
+                    break
+                except aiohttp.ClientError as e:
+                    self.logger.warning(
+                        f"{owner}/{repo}/{xget_version} tag page: {e} "
+                        f"(attempt {attempt + 1}/{max_retries})"
+                    )
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(retry_delay)
+                        continue
+                    break
+                except Exception as e:
+                    self.logger.warning(f"{owner}/{repo}/{xget_version} tag page parse failed: {e}")
+                    break
+        return {}
 
     async def get_latest_release_via_shields(
         self,
@@ -399,10 +516,18 @@ class GitHubReleaseChecker:
             }
 
         latest_version = release["tag_name"]
-        has_update = latest_version != current_version and latest_version != ""
+        # First check (no current_version) only records latest_version and check time,
+        # but does not trigger update/download/notification.
+        has_update = bool(current_version) and latest_version != current_version and latest_version != ""
 
         print(f"[FLOW] Fetching assets for {owner}/{repo_name}/{latest_version}...")
-        assets = await self.get_release_assets_via_xget(session, owner, repo_name, latest_version)
+        assets = await self.get_release_assets_via_xget(
+            session,
+            owner,
+            repo_name,
+            latest_version,
+            fill_missing_sha=has_update,
+        )
 
         downloaded_assets = await self.workflow.download_assets_if_needed(
             session=session,
@@ -422,6 +547,21 @@ class GitHubReleaseChecker:
             },
         )
 
+        current_version_auto_updated = False
+        if has_update and downloaded_assets:
+            statuses = [asset.get("status") for asset in downloaded_assets]
+            has_failed = any(status in ("failed", "skipped_no_sha") for status in statuses)
+            if not has_failed:
+                repo["current_version"] = latest_version
+                current_version_auto_updated = True
+                self.logger.info(
+                    f"{owner}/{repo_name}: current_version auto-updated to {latest_version}"
+                )
+            else:
+                self.logger.warning(
+                    f"{owner}/{repo_name}: current_version not updated due to incomplete downloads"
+                )
+
         result = {
             "tag": tag,
             "owner": owner,
@@ -433,6 +573,7 @@ class GitHubReleaseChecker:
             "last_checked": now_timestamp,
             "assets": assets,
             "downloaded_assets": downloaded_assets,
+            "current_version_auto_updated": current_version_auto_updated,
         }
 
         repo["latest_version"] = latest_version

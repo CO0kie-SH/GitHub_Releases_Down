@@ -7,7 +7,7 @@
     "current_version": "v1.2.1",
     "has_update": false,
     "html_url": "https://github.com/microsoft/edit/releases/tag/v1.2.1",
-    "last_checked": 1775477528,
+    "last_checked": 1775896839,
     "assets": [
       {
         "filename": "edit-1.2.0-aarch64-linux-gnu.tar.zst",
@@ -38,7 +38,8 @@
         "published_at": "2025-10-15T14:24:23Z"
       }
     ],
-    "downloaded_assets": null
+    "downloaded_assets": null,
+    "current_version_auto_updated": false
   },
   {
     "tag": "android",
@@ -48,7 +49,7 @@
     "current_version": "v1.11.6",
     "has_update": false,
     "html_url": "https://github.com/gkd-kit/gkd/releases/tag/v1.11.6",
-    "last_checked": 1775477528,
+    "last_checked": 1775896839,
     "assets": [
       {
         "filename": "gkd-v1.11.6.apk",
@@ -65,7 +66,8 @@
         "published_at": "2025-12-13T18:03:40Z"
       }
     ],
-    "downloaded_assets": null
+    "downloaded_assets": null,
+    "current_version_auto_updated": false
   },
   {
     "tag": "xposed",
@@ -75,7 +77,7 @@
     "current_version": "v26.02.03",
     "has_update": false,
     "html_url": "https://github.com/shatyuka/Zhiliao/releases/tag/v26.02.03",
-    "last_checked": 1775477528,
+    "last_checked": 1775896839,
     "assets": [
       {
         "filename": "Zhiliao_26.02.03.apk",
@@ -85,27 +87,36 @@
         "published_at": "2026-02-03T10:20:30Z"
       }
     ],
-    "downloaded_assets": null
+    "downloaded_assets": null,
+    "current_version_auto_updated": false
   },
   {
     "tag": "xposed",
     "owner": "Dr-TSNG",
     "repo": "ZygiskNext",
-    "latest_version": "v1.3.3",
+    "latest_version": "v1.3.4",
     "current_version": "v1.3.3",
-    "has_update": false,
-    "html_url": "https://github.com/Dr-TSNG/ZygiskNext/releases/tag/v1.3.3",
-    "last_checked": 1775477528,
+    "has_update": true,
+    "html_url": "https://github.com/Dr-TSNG/ZygiskNext/releases/tag/v1.3.4",
+    "last_checked": 1775896839,
     "assets": [
       {
-        "filename": "Zygisk-Next-1.3.3-731-1193e46-release.zip",
-        "download_url": "https://github.com/Dr-TSNG/ZygiskNext/releases/download/v1.3.3/Zygisk-Next-1.3.3-731-1193e46-release.zip",
-        "sha256": "a528584874dd814423dece1a6bc734aee524886d74f4453f48af0715a7f0f5c4",
-        "size": "5.4 MB",
-        "published_at": "2026-03-22T00:36:37Z"
+        "filename": "Zygisk-Next-1.3.4-746-d1b76b3-release.zip",
+        "download_url": "https://github.com/Dr-TSNG/ZygiskNext/releases/download/v1.3.4/Zygisk-Next-1.3.4-746-d1b76b3-release.zip",
+        "sha256": "b330b368e6133b83c069c0ff1bb1bf81091afec5a8d6532d39c14bd1b7e5d367",
+        "size": "5.44 MB",
+        "published_at": "2026-04-08T08:09:41Z"
       }
     ],
-    "downloaded_assets": null
+    "downloaded_assets": [
+      {
+        "filename": "Zygisk-Next-1.3.4-746-d1b76b3-release.zip",
+        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0xposed\\Dr-TSNG\\ZygiskNext\\v1.3.4\\Zygisk-Next-1.3.4-746-d1b76b3-release.zip",
+        "sha256": "b330b368e6133b83c069c0ff1bb1bf81091afec5a8d6532d39c14bd1b7e5d367",
+        "status": "exists"
+      }
+    ],
+    "current_version_auto_updated": true
   },
   {
     "tag": "xposed",
@@ -113,9 +124,9 @@
     "repo": "BiliRoaming",
     "latest_version": "v1.7.0",
     "current_version": "",
-    "has_update": true,
+    "has_update": false,
     "html_url": "https://github.com/yujincheng08/BiliRoaming/releases/tag/v1.7.0",
-    "last_checked": 1775477528,
+    "last_checked": 1775896839,
     "assets": [
       {
         "filename": "BiliRoaming_1.7.0.apk",
@@ -124,26 +135,302 @@
         "published_at": "2023-10-12T09:50:30Z"
       }
     ],
-    "downloaded_assets": [
-      {
-        "filename": "BiliRoaming_1.7.0.apk",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0xposed\\yujincheng08\\BiliRoaming\\v1.7.0\\BiliRoaming_1.7.0.apk",
-        "sha256": null,
-        "status": "exists"
-      }
-    ]
+    "downloaded_assets": null,
+    "current_version_auto_updated": false
   },
   {
     "tag": "python",
     "owner": "astral-sh",
     "repo": "uv",
-    "latest_version": "v0.11.3",
+    "latest_version": "v0.11.6",
     "current_version": "",
-    "has_update": true,
-    "html_url": "https://github.com/astral-sh/uv/releases/tag/v0.11.3",
-    "last_checked": 1775477528,
-    "assets": null,
-    "downloaded_assets": null
+    "has_update": false,
+    "html_url": "https://github.com/astral-sh/uv/releases/tag/v0.11.6",
+    "last_checked": 1775896839,
+    "assets": [
+      {
+        "filename": "dist-manifest.json",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/dist-manifest.json",
+        "sha256": "cb4d5a367fb748143033a00d43cf882ac64b9b019e24bcb7ca0f1c26a4970108",
+        "size": "43.5 KB",
+        "published_at": "2026-04-09T12:12:16Z"
+      },
+      {
+        "filename": "sha256.sum",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/sha256.sum",
+        "sha256": "bfd0738a86edd1e975d1622cb264952e081156f3433ee2110b7df6eb8b2f9901",
+        "size": "1.86 KB",
+        "published_at": "2026-04-09T12:12:15Z"
+      },
+      {
+        "filename": "source.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/source.tar.gz",
+        "sha256": "d22e9f8147ac7e43597a48679ce10be55eecb5e5eb3afc3c7767f0f0f941291b",
+        "size": "4.97 MB",
+        "published_at": "2026-04-09T12:12:16Z"
+      },
+      {
+        "filename": "source.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/source.tar.gz.sha256",
+        "sha256": "9a19e79715514abfd3b94014531615b82d23be30ed54e3a772e71c36b2269627",
+        "published_at": "2026-04-09T12:12:15Z"
+      },
+      {
+        "filename": "uv-aarch64-apple-darwin.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-aarch64-apple-darwin.tar.gz",
+        "sha256": "4b69a4e366ec38cd5f305707de95e12951181c448679a00dce2a78868dfc9f5b",
+        "size": "19.8 MB",
+        "published_at": "2026-04-09T12:12:15Z"
+      },
+      {
+        "filename": "uv-aarch64-apple-darwin.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-aarch64-apple-darwin.tar.gz.sha256",
+        "sha256": "18744d58fc379b34192c4d8ae5d3bc6030af1fe77a6cb7fc2b9a6ac2bd9ae014",
+        "published_at": "2026-04-09T12:12:16Z"
+      },
+      {
+        "filename": "uv-aarch64-pc-windows-msvc.zip",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-aarch64-pc-windows-msvc.zip",
+        "sha256": "bee7b25a7a999f17291810242b47565c3ef2b9205651a0fd02a086f261a7e167",
+        "size": "21 MB",
+        "published_at": "2026-04-09T12:12:16Z"
+      },
+      {
+        "filename": "uv-aarch64-pc-windows-msvc.zip.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-aarch64-pc-windows-msvc.zip.sha256",
+        "sha256": "3b18cd9b1c910b3fdede0010582fbc259a06e0f782829ca19073b20f202d2969",
+        "published_at": "2026-04-09T12:12:16Z"
+      },
+      {
+        "filename": "uv-aarch64-unknown-linux-gnu.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-aarch64-unknown-linux-gnu.tar.gz",
+        "sha256": "d5be4bf7015ea000378cb3c3aba53ba81a8673458ace9c7fa25a0be005b74802",
+        "size": "21.6 MB",
+        "published_at": "2026-04-09T12:12:16Z"
+      },
+      {
+        "filename": "uv-aarch64-unknown-linux-gnu.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-aarch64-unknown-linux-gnu.tar.gz.sha256",
+        "sha256": "3be14c1f426406ecfaa883069754dd8b6b3ff2bfc2c27d2378f84ccb60d146c5",
+        "published_at": "2026-04-09T12:12:17Z"
+      },
+      {
+        "filename": "uv-aarch64-unknown-linux-musl.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-aarch64-unknown-linux-musl.tar.gz",
+        "sha256": "d14ebd6f200047264152daaf97b8bd36c7885a5033e9e8bba8366cb0049c0d00",
+        "size": "21.5 MB",
+        "published_at": "2026-04-09T12:12:16Z"
+      },
+      {
+        "filename": "uv-aarch64-unknown-linux-musl.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-aarch64-unknown-linux-musl.tar.gz.sha256",
+        "sha256": "e335ea8c421bd7fa9e2c10619cbdec278a0379554d11279b89571eb06e376788",
+        "published_at": "2026-04-09T12:12:17Z"
+      },
+      {
+        "filename": "uv-arm-unknown-linux-musleabihf.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-arm-unknown-linux-musleabihf.tar.gz",
+        "sha256": "4410a9489e0a29ce8f86fc8604b75a3dd821e9e52734282cbb413b4e19c5c70a",
+        "size": "21.8 MB",
+        "published_at": "2026-04-09T12:12:17Z"
+      },
+      {
+        "filename": "uv-arm-unknown-linux-musleabihf.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-arm-unknown-linux-musleabihf.tar.gz.sha256",
+        "sha256": "383da8aa19faea4fab432ab03862240f8aaa80460d7c2774435c3de0beaec7d6",
+        "published_at": "2026-04-09T12:12:17Z"
+      },
+      {
+        "filename": "uv-armv7-unknown-linux-gnueabihf.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-armv7-unknown-linux-gnueabihf.tar.gz",
+        "sha256": "9758d49c200c211ccb2c9cbf43877102031c3457e80b6c3cb9da1e4c00119d2a",
+        "size": "21.4 MB",
+        "published_at": "2026-04-09T12:12:17Z"
+      },
+      {
+        "filename": "uv-armv7-unknown-linux-gnueabihf.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-armv7-unknown-linux-gnueabihf.tar.gz.sha256",
+        "sha256": "f25aa2be7b8dfc28821eee6e81084a3e8cfa5c58e31bc78ba06eb00d934834ab",
+        "published_at": "2026-04-09T12:12:18Z"
+      },
+      {
+        "filename": "uv-armv7-unknown-linux-musleabihf.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-armv7-unknown-linux-musleabihf.tar.gz",
+        "sha256": "0677423d98cea5011d346d7d4a33a53360b99a51a04df4b45f67d43a8308c831",
+        "size": "21.4 MB",
+        "published_at": "2026-04-09T12:12:18Z"
+      },
+      {
+        "filename": "uv-armv7-unknown-linux-musleabihf.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-armv7-unknown-linux-musleabihf.tar.gz.sha256",
+        "sha256": "d0664ee8b317b85ed9c6962b4548bb343d468bd85898493530e460726b8d21e4",
+        "published_at": "2026-04-09T12:12:18Z"
+      },
+      {
+        "filename": "uv-i686-pc-windows-msvc.zip",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-i686-pc-windows-msvc.zip",
+        "sha256": "c5569da150166363389a719553d87f99e0c29e542b2c31bc8bd4aeeb8eb83d99",
+        "size": "20.6 MB",
+        "published_at": "2026-04-09T12:12:18Z"
+      },
+      {
+        "filename": "uv-i686-pc-windows-msvc.zip.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-i686-pc-windows-msvc.zip.sha256",
+        "sha256": "a0fb4fcb4a136a4800a5d2a377d76b0087c0d668c7e602ec3e476e102c242d98",
+        "published_at": "2026-04-09T12:12:18Z"
+      },
+      {
+        "filename": "uv-i686-unknown-linux-gnu.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-i686-unknown-linux-gnu.tar.gz",
+        "sha256": "b4bf8d78478b573c1816b17ec86da7ade14242cd68ac092c1701c5b4a75dc228",
+        "size": "23.2 MB",
+        "published_at": "2026-04-09T12:12:18Z"
+      },
+      {
+        "filename": "uv-i686-unknown-linux-gnu.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-i686-unknown-linux-gnu.tar.gz.sha256",
+        "sha256": "c9ad56823017577fa95169a9bdcaaa49cacf586588623dc6760f9239eb465860",
+        "published_at": "2026-04-09T12:12:19Z"
+      },
+      {
+        "filename": "uv-i686-unknown-linux-musl.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-i686-unknown-linux-musl.tar.gz",
+        "sha256": "ca31705d93f48313d5ffdc23da165e680c6c5389d9a2cc62b85a1ed495e0331f",
+        "size": "22.4 MB",
+        "published_at": "2026-04-09T12:12:19Z"
+      },
+      {
+        "filename": "uv-i686-unknown-linux-musl.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-i686-unknown-linux-musl.tar.gz.sha256",
+        "sha256": "3b5e233ed2f055cffc3091715f1d07c73f65abbf8bf48015e2f136a014f4151b",
+        "published_at": "2026-04-09T12:12:19Z"
+      },
+      {
+        "filename": "uv-installer.ps1",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-installer.ps1",
+        "sha256": "46da9313591884d09aa4f06f7f78f74154ea01a8012d425ed090163d4799295c",
+        "size": "22.1 KB",
+        "published_at": "2026-04-09T12:12:19Z"
+      },
+      {
+        "filename": "uv-installer.sh",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-installer.sh",
+        "sha256": "02f6fdf8077f97f7bbd901de06054a65e7aefbd54432c8a83784d42a3e360a45",
+        "size": "69.6 KB",
+        "published_at": "2026-04-09T12:12:19Z"
+      },
+      {
+        "filename": "uv-powerpc64le-unknown-linux-gnu.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-powerpc64le-unknown-linux-gnu.tar.gz",
+        "sha256": "153397d3d82e45e68fb1f4a40ee9898245ec8ed86fd03fcaacaf6e793316acf7",
+        "size": "23.8 MB",
+        "published_at": "2026-04-09T12:12:20Z"
+      },
+      {
+        "filename": "uv-powerpc64le-unknown-linux-gnu.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-powerpc64le-unknown-linux-gnu.tar.gz.sha256",
+        "sha256": "ea9ae73899341ef9357312e6438ebfd7969bbd265b72242b421dc3ea84bbbfc4",
+        "published_at": "2026-04-09T12:12:20Z"
+      },
+      {
+        "filename": "uv-riscv64gc-unknown-linux-gnu.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-riscv64gc-unknown-linux-gnu.tar.gz",
+        "sha256": "0e3ead8667b51b07b5fb9d114bcd1914a5fe3159e6959a584dc2f89c6724e123",
+        "size": "22.8 MB",
+        "published_at": "2026-04-09T12:12:20Z"
+      },
+      {
+        "filename": "uv-riscv64gc-unknown-linux-gnu.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-riscv64gc-unknown-linux-gnu.tar.gz.sha256",
+        "sha256": "4ec0161ee8002e13edbba23769c0ec4bc7146db3da96287c1bcd2a7ec6b579a9",
+        "published_at": "2026-04-09T12:12:20Z"
+      },
+      {
+        "filename": "uv-riscv64gc-unknown-linux-musl.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-riscv64gc-unknown-linux-musl.tar.gz",
+        "sha256": "87d5932bffef3b7b9cba4a2a042f95edf75cd34555fc80cfa98cc5a4426635f9",
+        "size": "22.7 MB",
+        "published_at": "2026-04-09T12:12:20Z"
+      },
+      {
+        "filename": "uv-riscv64gc-unknown-linux-musl.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-riscv64gc-unknown-linux-musl.tar.gz.sha256",
+        "sha256": "3728db36684f536a38eb6c14a696886af70a4b369b4a307f654f5961f8c0bbc8",
+        "published_at": "2026-04-09T12:12:20Z"
+      },
+      {
+        "filename": "uv-s390x-unknown-linux-gnu.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-s390x-unknown-linux-gnu.tar.gz",
+        "sha256": "6e3d4338da2db2c63326721f1eb3b4f32d9bde24aeff11208d397e1aeba8678e",
+        "size": "23.1 MB",
+        "published_at": "2026-04-09T12:12:20Z"
+      },
+      {
+        "filename": "uv-s390x-unknown-linux-gnu.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-s390x-unknown-linux-gnu.tar.gz.sha256",
+        "sha256": "d3e18e24cbffdba184e9a0963649e8ab7f76a6e133a197b2cd14a68c2447239a",
+        "published_at": "2026-04-09T12:12:21Z"
+      },
+      {
+        "filename": "uv-x86_64-apple-darwin.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-x86_64-apple-darwin.tar.gz",
+        "sha256": "8e0ed5035eaa28c7c8cd2a46b5b9a05bfff1ef01dbdc090a010eb8fdf193a457",
+        "size": "21.5 MB",
+        "published_at": "2026-04-09T12:12:21Z"
+      },
+      {
+        "filename": "uv-x86_64-apple-darwin.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-x86_64-apple-darwin.tar.gz.sha256",
+        "sha256": "47429ae761045633822fad9ef5c5d24164008419d92656f21b491d68234c040b",
+        "published_at": "2026-04-09T12:12:21Z"
+      },
+      {
+        "filename": "uv-x86_64-pc-windows-msvc.zip",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-x86_64-pc-windows-msvc.zip",
+        "sha256": "99aa60edd017a256dbf378f372d1cff3292dbc6696e0ea01716d9158d773ab77",
+        "size": "22.4 MB",
+        "published_at": "2026-04-09T12:12:21Z"
+      },
+      {
+        "filename": "uv-x86_64-pc-windows-msvc.zip.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-x86_64-pc-windows-msvc.zip.sha256",
+        "sha256": "72b59319552024662bce03ff553a0deabd0295b6050e697de600d661525fef2f",
+        "published_at": "2026-04-09T12:12:22Z"
+      },
+      {
+        "filename": "uv-x86_64-unknown-linux-gnu.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "0c6bab77a67a445dc849ed5e8ee8d3cb333b6e2eba863643ce1e228075f27943",
+        "size": "23.2 MB",
+        "published_at": "2026-04-09T12:12:22Z"
+      },
+      {
+        "filename": "uv-x86_64-unknown-linux-gnu.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-x86_64-unknown-linux-gnu.tar.gz.sha256",
+        "sha256": "da906ea44df7712fb624220dd39a8227106f37b626a75631b22db850f4e15ef7",
+        "published_at": "2026-04-09T12:12:22Z"
+      },
+      {
+        "filename": "uv-x86_64-unknown-linux-musl.tar.gz",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-x86_64-unknown-linux-musl.tar.gz",
+        "sha256": "aa342a53abe42364093506d7704214d2cdca30b916843e520bc67759a5d20132",
+        "size": "23.3 MB",
+        "published_at": "2026-04-09T12:12:22Z"
+      },
+      {
+        "filename": "uv-x86_64-unknown-linux-musl.tar.gz.sha256",
+        "download_url": "https://github.com/astral-sh/uv/releases/download/0.11.6/uv-x86_64-unknown-linux-musl.tar.gz.sha256",
+        "sha256": "43b7607adea4846e1bc1bc4540337b644c5519ee39f56df67111e6d6214a294f",
+        "published_at": "2026-04-09T12:12:22Z"
+      },
+      {
+        "filename": "Release attestation",
+        "download_url": "https://github.com/astral-sh/uv/attestations/23904310/download",
+        "published_at": "2026-04-09T11:21:12Z"
+      }
+    ],
+    "downloaded_assets": null,
+    "current_version_auto_updated": false
   },
   {
     "tag": "clash",
@@ -151,9 +438,9 @@
     "repo": "clash-verge-rev",
     "latest_version": "v2.4.7",
     "current_version": "",
-    "has_update": true,
+    "has_update": false,
     "html_url": "https://github.com/Clash-Verge-rev/clash-verge-rev/releases/tag/v2.4.7",
-    "last_checked": 1775477528,
+    "last_checked": 1775896839,
     "assets": [
       {
         "filename": "Clash Verge-2.4.7-1.aarch64.rpm",
@@ -309,146 +596,8 @@
         "published_at": "2026-03-21T05:59:48Z"
       }
     ],
-    "downloaded_assets": [
-      {
-        "filename": "Clash Verge-2.4.7-1.aarch64.rpm",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge-2.4.7-1.aarch64.rpm",
-        "sha256": "9acb2951dd6516b0e91818b396c52f79d1f5f7dc6cd0fe535b2a63b1cf2e7e68",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash Verge-2.4.7-1.armhfp.rpm",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge-2.4.7-1.armhfp.rpm",
-        "sha256": "0b1bee06646d1cd2ed7cdf601c04e253200895454edb656a9f60b463a37be1a9",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge-2.4.7-1.x86_64.rpm",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge-2.4.7-1.x86_64.rpm",
-        "sha256": "c5dfd275125056f59d9977b0a424d38c366569f724cb5398cd3cade00d8046cf",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge-2.4.7-1.x86_64.rpm.sig",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge-2.4.7-1.x86_64.rpm.sig",
-        "sha256": "48b498a79a731c00546748e4b0df32c1bcd6a167ebf060834a1668d0158f8672",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_2.4.7_aarch64.dmg",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_aarch64.dmg",
-        "sha256": "b4967eeefccc9688c100810fdfefa99147030c23949d1f278d5a5536aa86abf3",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_2.4.7_amd64.deb",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_amd64.deb",
-        "sha256": "c1fcbaa79e454416e3dff644f83ea30c9437cd9cd7e4d199ac7add651882c65d",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_2.4.7_amd64.deb.sig",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_amd64.deb.sig",
-        "sha256": "cd26312e8c20b2df2e5778bafd1f205f5513abac51fcf2a73a54e6dc881d241b",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_2.4.7_arm64-setup.exe",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_arm64-setup.exe",
-        "sha256": "7f522be46e6abae89a4905ba4914ad7a9d08a8b07c7c97ee45c6607f0abd02e5",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_2.4.7_arm64-setup.exe.sig",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_arm64-setup.exe.sig",
-        "sha256": "e56cf631df983b9bd7cb74c7edfc35fbc07d77ab1e264e79321d335e475d3241",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash Verge_2.4.7_arm64.deb",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_arm64.deb",
-        "sha256": "35f321a498f762175316b231d2fad3a90678016ad19157779758b5420d743a8f",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash Verge_2.4.7_arm64_fixed_webview2-setup.exe",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_arm64_fixed_webview2-setup.exe",
-        "sha256": "cabf20da51e4a8d45153f978941add6c120fbe791827d1626f7e56f16f3ceff1",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash Verge_2.4.7_arm64_fixed_webview2-setup.exe.sig",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_arm64_fixed_webview2-setup.exe.sig",
-        "sha256": "a11fe49ff29e012a90b2f837492ce70e6d445ab8867c578f58c1e021f0f7ed5b",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash Verge_2.4.7_armhf.deb",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_armhf.deb",
-        "sha256": "741b92d107466582f1955cc547b54405437bc4ef374ab28632816cabd0fe6739",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_2.4.7_x64-setup.exe",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_x64-setup.exe",
-        "sha256": "6642881b212bcd4766e81d56aec7497063ba5198c287f7d00a2ecf13b6f8b61a",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_2.4.7_x64-setup.exe.sig",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_x64-setup.exe.sig",
-        "sha256": "1a3b6a963badf8612c208852ed723a81f0037074393c271fbe6cecc727be9ea8",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_2.4.7_x64.dmg",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_2.4.7_x64.dmg",
-        "sha256": "89b32dd2aec2bccad52507ccc994cbdf67335a29de6ff794ebe844eb7c387792",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash Verge_2.4.7_x64_fixed_webview2-setup.exe",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_x64_fixed_webview2-setup.exe",
-        "sha256": "db9f052526a2cf1a8db8ddc739cc0b969f1edddf3d4f068cd8211cbac9ddf151",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash Verge_2.4.7_x64_fixed_webview2-setup.exe.sig",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash Verge_2.4.7_x64_fixed_webview2-setup.exe.sig",
-        "sha256": "a91495247f24e691f11f570d83daf20073fda32f29848e6d91bf73f9e65d82fd",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_aarch64.app.tar.gz",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_aarch64.app.tar.gz",
-        "sha256": "00dd16332ad582657f810fe300a45f84067aeb79b2d0cc68fedf87ebf160d457",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_aarch64.app.tar.gz.sig",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_aarch64.app.tar.gz.sig",
-        "sha256": "bb0e0163825217213365698a354d4c0d24f945c0808ef61c40ffbfe7f7cb6df3",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_x64.app.tar.gz",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_x64.app.tar.gz",
-        "sha256": "75a5e33b9e4f0f7b744e5ef56b62f09843db70c90b2a6ba8478f8ecfce032a87",
-        "status": "exists"
-      },
-      {
-        "filename": "Clash.Verge_x64.app.tar.gz.sig",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\Clash.Verge_x64.app.tar.gz.sig",
-        "sha256": "7390c563cc9db126b09444d056814f4abf370adf4967b13db3d3d296215c7156",
-        "status": "exists"
-      },
-      {
-        "filename": "latest.json",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0clash\\Clash-Verge-rev\\clash-verge-rev\\v2.4.7\\latest.json",
-        "sha256": "5939c737f95f7aba64b8947e2475703fbd75b0780936fdf1b15fa3f747e4c1c7",
-        "status": "exists"
-      }
-    ]
+    "downloaded_assets": null,
+    "current_version_auto_updated": false
   },
   {
     "tag": "network",
@@ -456,9 +605,9 @@
     "repo": "TrafficMonitor",
     "latest_version": "V1.86",
     "current_version": "",
-    "has_update": true,
+    "has_update": false,
     "html_url": "https://github.com/zhongyang219/TrafficMonitor/releases/tag/V1.86",
-    "last_checked": 1775477528,
+    "last_checked": 1775896839,
     "assets": [
       {
         "filename": "TrafficMonitor_V1.86_arm64ec.zip",
@@ -503,43 +652,73 @@
         "published_at": "2026-03-29T09:58:15Z"
       }
     ],
+    "downloaded_assets": null,
+    "current_version_auto_updated": false
+  },
+  {
+    "tag": "shell",
+    "owner": "kingToolbox",
+    "repo": "WindTerm",
+    "latest_version": "v2.7.0",
+    "current_version": "v2.6.0",
+    "has_update": true,
+    "html_url": "https://github.com/kingToolbox/WindTerm/releases/tag/v2.7.0",
+    "last_checked": 1775896839,
+    "assets": [
+      {
+        "filename": "WindTerm_2.7.0_Linux_Portable_x86_64.zip",
+        "download_url": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Linux_Portable_x86_64.zip",
+        "size": "37.3 MB",
+        "published_at": "2025-03-11T19:02:13Z",
+        "sha256": "7797697eeb60239020512e2b549695a60c39b3fd01fe7ebb047fd50a2889103c"
+      },
+      {
+        "filename": "WindTerm_2.7.0_Mac_Portable_x86_64.dmg",
+        "download_url": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Mac_Portable_x86_64.dmg",
+        "size": "28.4 MB",
+        "published_at": "2025-03-11T19:02:44Z"
+      },
+      {
+        "filename": "WindTerm_2.7.0_Windows_Portable_x86_32.zip",
+        "download_url": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Windows_Portable_x86_32.zip",
+        "size": "27.4 MB",
+        "published_at": "2025-03-11T19:01:39Z",
+        "sha256": "d04b2742c33773c0a0a5761889ca599ad5c443224dbc6198fe0e9e8de84f62c7"
+      },
+      {
+        "filename": "WindTerm_2.7.0_Windows_Portable_x86_64.zip",
+        "download_url": "https://github.com/kingToolbox/WindTerm/releases/download/2.7.0/WindTerm_2.7.0_Windows_Portable_x86_64.zip",
+        "size": "31.2 MB",
+        "published_at": "2025-03-11T19:00:38Z",
+        "sha256": "b05c3c7371340ff1302967247ffcd3a3ba27b237f72010e9157086143c453e50"
+      }
+    ],
     "downloaded_assets": [
       {
-        "filename": "TrafficMonitor_V1.86_arm64ec.zip",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0network\\zhongyang219\\TrafficMonitor\\V1.86\\TrafficMonitor_V1.86_arm64ec.zip",
-        "sha256": "20245bd1472d60283cbd081dbfab519cf46d3c71ac265c747498917196381c92",
+        "filename": "WindTerm_2.7.0_Linux_Portable_x86_64.zip",
+        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0shell\\kingToolbox\\WindTerm\\v2.7.0\\WindTerm_2.7.0_Linux_Portable_x86_64.zip",
+        "sha256": "7797697eeb60239020512e2b549695a60c39b3fd01fe7ebb047fd50a2889103c",
         "status": "exists"
       },
       {
-        "filename": "TrafficMonitor_V1.86_arm64ec_Lite.zip",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0network\\zhongyang219\\TrafficMonitor\\V1.86\\TrafficMonitor_V1.86_arm64ec_Lite.zip",
-        "sha256": "1f20b98240784de2f85d466391c5926ffe6ea3afff77ee338bf5e34aa1fc5bc4",
+        "filename": "WindTerm_2.7.0_Mac_Portable_x86_64.dmg",
+        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0shell\\kingToolbox\\WindTerm\\v2.7.0\\WindTerm_2.7.0_Mac_Portable_x86_64.dmg",
+        "sha256": "8c1bc1363e01df5b06f45019da934752f5f29e8603cc843bd38e59bdff121bf7",
+        "status": "exists_no_sha"
+      },
+      {
+        "filename": "WindTerm_2.7.0_Windows_Portable_x86_32.zip",
+        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0shell\\kingToolbox\\WindTerm\\v2.7.0\\WindTerm_2.7.0_Windows_Portable_x86_32.zip",
+        "sha256": "d04b2742c33773c0a0a5761889ca599ad5c443224dbc6198fe0e9e8de84f62c7",
         "status": "exists"
       },
       {
-        "filename": "TrafficMonitor_V1.86_x64.zip",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0network\\zhongyang219\\TrafficMonitor\\V1.86\\TrafficMonitor_V1.86_x64.zip",
-        "sha256": "948ddc12cc582e8cf0b7b32e0064544f6f711265a7671c2e47343a6a0ff4908e",
-        "status": "exists"
-      },
-      {
-        "filename": "TrafficMonitor_V1.86_x64_Lite.zip",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0network\\zhongyang219\\TrafficMonitor\\V1.86\\TrafficMonitor_V1.86_x64_Lite.zip",
-        "sha256": "d9774a64268f952b5cb88a1eead399f863f7d4ab64e945f19c096fed89cc1145",
-        "status": "exists"
-      },
-      {
-        "filename": "TrafficMonitor_V1.86_x86.zip",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0network\\zhongyang219\\TrafficMonitor\\V1.86\\TrafficMonitor_V1.86_x86.zip",
-        "sha256": "2dddbd07f54607035f7b54d15ef2597844335ee343afe5f9ddb004e7f0725f04",
-        "status": "exists"
-      },
-      {
-        "filename": "TrafficMonitor_V1.86_x86_Lite.zip",
-        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0network\\zhongyang219\\TrafficMonitor\\V1.86\\TrafficMonitor_V1.86_x86_Lite.zip",
-        "sha256": "61ba6b0eecbacac1895176e96ddaf14950c109cda69a1638fd68edb3498c1caa",
+        "filename": "WindTerm_2.7.0_Windows_Portable_x86_64.zip",
+        "file_path": "D:\\PycharmProjects\\GitHub_Releases_Down\\releases\\0shell\\kingToolbox\\WindTerm\\v2.7.0\\WindTerm_2.7.0_Windows_Portable_x86_64.zip",
+        "sha256": "b05c3c7371340ff1302967247ffcd3a3ba27b237f72010e9157086143c453e50",
         "status": "exists"
       }
-    ]
+    ],
+    "current_version_auto_updated": true
   }
 ]

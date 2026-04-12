@@ -18,7 +18,7 @@
 - ✅ 通过 ghproxy 加速下载（国内可访问）
 - ✅ SHA256 校验码自动验证，确保下载文件完整性
 - ✅ 对比本地记录，检测新版本
-- ✅ 发现新版本时自动下载所有资产文件
+- ✅ 发现新版本时自动下载可校验（含 sha256）的资产文件，无 sha256 时跳过下载
 - ✅ **异步网络请求**：使用 aiohttp 实现高效并发
 - ✅ **tag 分类功能**：支持按标签分类存储下载文件
 - ✅ **版本格式兼容**：自动尝试带 v 和不带 v 的版本格式
@@ -172,7 +172,7 @@ network,zhongyang219,TrafficMonitor,,V1.86,1775188923
 | `tag` | ❌ | 手动 | 分类标签，非空时目录为 `releases/0{tag}/...` |
 | `owner` | ✅ | 手动 | GitHub 用户名或组织名 |
 | `repo` | ✅ | 手动 | 仓库名称 |
-| `current_version` | ✅ | 手动 | 当前使用的版本号 |
+| `current_version` | ✅ | 自动/手动 | 下载完成后可自动更新为 `latest_version`，也支持手动维护 |
 | `latest_version` | ❌ | 自动 | GitHub 上最新发布版本 |
 | `last_checked` | ❌ | 自动 | 上次检查时间（Unix 时间戳） |
 
@@ -359,11 +359,11 @@ tag,owner,repo,current_version,latest_version,last_checked
 newtag,newowner,newrepo,,, 
 ```
 
-首次运行时 `current_version` 为空，不会触发下载。需要手动设置一个旧版本才会触发。
+首次运行时 `current_version` 为空，不会触发下载。需要先设置一个旧版本才能触发首轮下载。
 
 ### 4. 更新本地版本
 
-当你升级了某个软件后，手动更新 CSV 中的 `current_version`：
+默认情况下，下载流程成功完成后会自动把 `current_version` 更新为 `latest_version`。你也可以手动更新 CSV 中的 `current_version`：
 
 ```csv
 android,gkd-kit,gkd,v1.11.7,v1.11.7,1774773371
@@ -509,6 +509,18 @@ GET https://ghproxy.net/{original_github_url}
 
 ## 📝 更新日志
 
+### v26.4.11B (2026-04-11)
+
+- ✨ 新增：当仓库存在更新且下载结果完整成功时，自动将 `current_version` 回写为 `latest_version`
+- 🔧 优化：自动回写会在出现 `failed` 或 `skipped_no_sha` 时阻止执行，避免版本被误更新
+
+### v26.4.11A (2026-04-11)
+
+- ✨ 新增：当 `expanded_assets` 缺失 `sha256` 时，自动回退请求 `releases/tag/{version}` 补全校验码
+- ✨ 新增：若两种方案都无法获取 `sha256`，资产将标记跳过，不再下载临时文件或移动文件
+- 🔧 优化：仅对“有更新”的仓库执行 `tag` 页回退解析，减少无效请求与 429 触发
+- 🔧 优化：复用已计算的本地 `sha256`，减少重复哈希计算
+
 ### v26.4.6A (2026-04-06)
 
 - 🔧 重构：核心流程改为类实现，新增 `ReleaseMonitorApp`、`GitHubReleaseChecker`、`DownloadWorkflow`
@@ -598,5 +610,5 @@ GET https://ghproxy.net/{original_github_url}
 
 ---
 
-*最后更新：2026-04-06*
-*版本：26.4.6A*
+*最后更新：2026-04-11*
+*版本：26.4.11B*
